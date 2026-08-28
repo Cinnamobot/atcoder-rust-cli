@@ -1,6 +1,6 @@
 # AtCoder Rust CLI ツール
 
-AtCoder の問題をローカルの **VSCode / Zed** で解くための CLI ツール群。
+AtCoder の問題をローカルの **VSCode** で解くための CLI ツール群。
 `src/bin/<問題ID>.rs` を新規作成した瞬間に、**問題文コメント＋入力テンプレート＋
 サンプル入出力が全部自動生成**され、保存すると**自動でサンプル照合**が走る。
 
@@ -14,7 +14,6 @@ AtCoder の問題をローカルの **VSCode / Zed** で解くための CLI ツ�
 | **サンプル取得** | `fetch.py` が問題ページからサンプル入出力を自動スクレイピング |
 | **自動照合** | `check.py` がローカルの Rust コードをビルド・実行し、サンプルと照合 |
 | **VSCode 連携** | ファイル作成→自動生成、保存→自動照合（File Watcher 拡張） |
-| **Zed 連携** | `.zed/tasks.json` にタスク登録済み（監視モード対応） |
 
 ## クイックスタート
 
@@ -45,7 +44,6 @@ python check.py abc086_a
 | `python gen.py abc086_a` | `src/bin/abc086_a.rs` 生成 (問題文+テンプレート+サンプル) |
 | `python gen.py src/bin/abc086_a.rs` | ファイルパス指定で生成 (冪等: 最新なら何もしない) |
 | `python gen.py --all` | `src/bin/` の全 `.rs` のヘッダ+サンプルを更新 |
-| `python gen.py --watch` | `src/bin/` を監視して自動生成 (Zed 用) |
 | `python check.py` | サンプル照合 (対象を自動検出) |
 | `python check.py abc086_a` | 問題ID指定で照合 |
 | `python check.py src/bin/abc086_a.rs` | ファイルパス指定で照合 |
@@ -59,7 +57,6 @@ python check.py abc086_a
 src/bin/abc086_a.rs      # 解答 (ヘッダに問題文コメントが自動生成される)
 samples/abc086_a/        # 問題ごとのサンプル in_N.txt / out_N.txt (自動生成)
 .vscode/settings.json    # File Watcher 設定 (このフォルダを開いたときだけ有効)
-.zed/tasks.json          # Zed タスク定義
 check.py                 # 照合スクリプト
 fetch.py                 # スクレイピング (サンプル+問題文)
 gen.py                   # テンプレート自動生成 (ファイルパス/ID/監視に対応)
