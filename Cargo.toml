@@ -1,0 +1,13 @@
+[package]
+name = "atcoder-rust"
+version = "0.1.0"
+edition = "2021"
+
+# AtCoder の Rust 提出環境に合わせた依存 (2025/10 言語アップデート対応)
+# ローカルで cargo run した結果 = 提出した結果、になる構成
+[dependencies]
+proconio = "0.4.5"
+
+[profile.release]
+opt-level = 3
+debug = false

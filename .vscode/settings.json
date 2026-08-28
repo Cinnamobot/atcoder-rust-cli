@@ -1,0 +1,27 @@
+{
+    // AtCoder 自動化 (work/rust ワークスペース限定)
+    // 拡張: File & Folder Watcher (appulate.filewatcher) が必要
+    //   新規 .rs 作成 → 問題文+テンプレート+サンプル自動生成
+    //   既存 .rs 保存  → サンプル照合を自動実行
+    // NOTE: child_process.exec の cwd は VSCode の実行ディレクトリになるため、
+    //       スクリプトは ${workspaceRoot} で絶対パス指定する。
+    "filewatcher.commands": [
+        {
+            "match": "bin[/\\\\].*\\.rs$",
+            "event": "onFileCreate",
+            "isAsync": true,
+            "cmd": "python \"${workspaceRoot}\\gen.py\" \"${file}\""
+        },
+        {
+            "match": "bin[/\\\\].*\\.rs$",
+            "event": "onFileChange",
+            "isAsync": true,
+            "cmd": "python \"${workspaceRoot}\\check.py\" \"${file}\""
+        }
+    ],
+    "filewatcher.autoClearConsole": false,
+    "files.watcherExclude": {
+        "**/target/**": true,
+        "**/.git/**": true
+    }
+}

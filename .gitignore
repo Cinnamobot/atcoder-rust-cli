@@ -1,0 +1,18 @@
+# Rust
+/target
+
+# Python
+__pycache__/
+*.pyc
+
+# AtCoder サンプルデータ (著作権のため公開しない)
+/samples/
+
+# 解答コード (公開しない)
+/src/bin/
+/src/main.rs
+
+# ローカル一時ファイル
+problem.txt
+_inspect_html.py
+.watch.log
